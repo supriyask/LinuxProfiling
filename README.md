@@ -11,6 +11,11 @@ Let us consider an example of pipe between two processes.
 root@ubuntu:/home/supriya# grep "example pipe" | grep "print it to the stdout"
 ```
 ```
+root@ubuntu:~# ps awuxx | grep grep
+root   2497  0.0  0.2  15944  2236 pts/13   S+   17:18   0:00 grep --color=auto example pipe
+root   2498  0.0  0.2  15944  2244 pts/13   S+   17:18   0:00 grep --color=auto print it to the stdout
+```
+```
 root@ubuntu:~# stat /proc/2497/fd/1
   File: ‘/proc/2497/fd/1’ -> ‘pipe:[19040]’
   Size: 64           Blocks: 0          IO Block: 1024   symbolic link
@@ -20,11 +25,6 @@ Access: 2017-12-07 17:19:01.262765577 -0800
 Modify: 2017-12-07 17:19:01.262765577 -0800
 Change: 2017-12-07 17:19:01.262765577 -0800
   Birth: -
-```
-```
-root@ubuntu:~# ps awuxx | grep grep
-root   2497  0.0  0.2  15944  2236 pts/13   S+   17:18   0:00 grep --color=auto example pipe
-root   2498  0.0  0.2  15944  2244 pts/13   S+   17:18   0:00 grep --color=auto print it to the stdout
 ```
 ```
 root@ubuntu:~# stat /proc/2498/fd/0
